@@ -1,0 +1,41 @@
+.about {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem clamp(2rem, 8vw, 10rem);
+  border-top: 1px solid var(--chrome-3);
+  gap: 3rem;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.line {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, #e8e8e8, #707070);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bio {
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-weight: 300;
+  color: var(--chrome-2);
+  line-height: 1.8;
+  max-width: 40ch;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --black:       #080808;
+  --chrome-1:    #e8e8e8;
+  --chrome-2:    #a0a0a0;
+  --chrome-3:    #505050;
+  --chrome-glow: #d4d4d4;
+  --accent:      #c0c0c0;
+  --bg:          #080808;
+  --text:        #e8e8e8;
+  --text-muted:  #707070;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--chrome-3); }
+
+/* Selection */
+::selection {
+  background: var(--chrome-3);
+  color: var(--chrome-1);
+}
