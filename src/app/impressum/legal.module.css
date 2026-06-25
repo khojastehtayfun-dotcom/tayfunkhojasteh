@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+
+.legal {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+  color: var(--chrome-2);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.back:hover { color: var(--chrome-1); }
+
+.legal h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  background: linear-gradient(90deg, #e8e8e8, #707070);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4rem;
+}
+
+.legal section {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--chrome-3);
+}
+
+.legal section:last-child {
+  border-bottom: none;
+}
+
+.legal h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--chrome-1);
+  margin-bottom: 1rem;
+}
+
+.legal p {
+  font-size: 0.95rem;
+  color: var(--chrome-2);
+}
