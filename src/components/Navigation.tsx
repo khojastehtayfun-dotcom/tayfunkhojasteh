@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react'
 import styles from './Navigation.module.css'
+import { useLang } from '@/context/LanguageContext'
 
 export default function Navigation() {
   const [visible, setVisible] = useState(true)
   const [scrolled, setScrolled] = useState(false)
-  const [lang, setLang] = useState<'de' | 'en'>('de')
+  const { lang, setLang } = useLang()
   const lastY = useRef(0)
 
   useEffect(() => {
@@ -39,9 +40,13 @@ export default function Navigation() {
         </button></li>
       </ul>
       <div className={styles.langSwitch}>
-        <button className={lang === 'de' ? styles.active : ''} onClick={() => setLang('de')}>🇩🇪</button>
+        <button className={lang === 'de' ? styles.active : ''} onClick={() => setLang('de')}>
+          DE
+        </button>
         <span className={styles.divider}>|</span>
-        <button className={lang === 'en' ? styles.active : ''} onClick={() => setLang('en')}>🇬🇧</button>
+        <button className={lang === 'en' ? styles.active : ''} onClick={() => setLang('en')}>
+          EN
+        </button>
       </div>
     </nav>
   )

@@ -1,35 +1,57 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
+import { useInView } from 'framer-motion'
 import styles from './Stats.module.css'
+import { useLang } from '@/context/LanguageContext'
 
 const stats = [
-  { value: '5+',  label_de: 'Unternehmen',       label_en: 'Companies'       },
-  { value: '10+', label_de: 'Jahre Erfahrung',    label_en: 'Years Experience' },
-  { value: '3',   label_de: 'Branchen',           label_en: 'Industries'      },
-  { value: '∞',   label_de: 'Ambitionen',         label_en: 'Ambitions'       },
+  { value: 1,    suffix: '',  label_de: 'Aktives Projekt',  label_en: 'Active Project'    },
+  { value: 3,    suffix: '+', label_de: 'Jahre am Ball',    label_en: 'Years in the Game' },
+  { value: 3,    suffix: '',  label_de: 'Branchen',         label_en: 'Industries'        },
+  { value: null, suffix: '∞', label_de: 'Ambitionen',       label_en: 'Ambitions'         },
 ]
 
-interface Props { lang?: 'de' | 'en' }
+function CountUp({ target, suffix }: { target: number | null, suffix: string }) {
+  const [count, setCount] = useState(0)
+  const ref = useRef(null)
+  const inView = useInView(ref, { once: true })
 
-export default function Stats({ lang = 'de' }: Props) {
-  const ref    = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  useEffect(() => {
+    if (!inView || target === null) return
+    let start = 0
+    const duration = 1500
+    const step = 16
+    const increment = target / (duration / step)
+    const timer = setInterval(() => {
+      start += increment
+      if (start >= target) {
+        setCount(target)
+        clearInterval(timer)
+      } else {
+        setCount(Math.floor(start))
+      }
+    }, step)
+    return () => clearInterval(timer)
+  }, [inView, target])
+
+  return <span ref={ref}>{target === null ? '∞' : `${count}${suffix}`}</span>
+}
+
+export default function Stats() {
+  const { lang } = useLang()
 
   return (
-    <section className={styles.stats} ref={ref} id="stats">
+    <section className={styles.stats} id="stats">
       {stats.map((s, i) => (
-        <motion.div
-          key={s.value}
-          className={styles.item}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: i * 0.1 }}
-        >
-          <span className={styles.value}>{s.value}</span>
-          <span className={styles.label}>{lang === 'de' ? s.label_de : s.label_en}</span>
-        </motion.div>
+        <div key={i} className={styles.item}>
+          <span className={styles.value}>
+            <CountUp target={s.value} suffix={s.suffix} />
+          </span>
+          <span className={styles.label}>
+            {lang === 'de' ? s.label_de : s.label_en}
+          </span>
+        </div>
       ))}
     </section>
   )

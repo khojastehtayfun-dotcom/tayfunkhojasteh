@@ -28,12 +28,25 @@
 }
 
 .socials a {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--chrome-2);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.socials a:hover {
+  color: var(--chrome-1);
+  transform: scale(1.15);
+}
+
+.socials a svg {
+  width: 36px;
+  height: 36px;
+}
+.socials a:hover {
+  color: var(--chrome-1);
+  transform: scale(1.15);
 }
 
 .socials a:hover { color: var(--chrome-1); }

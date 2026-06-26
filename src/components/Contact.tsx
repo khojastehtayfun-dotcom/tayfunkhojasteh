@@ -3,28 +3,43 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import styles from './Contact.module.css'
+import { useLang } from '@/context/LanguageContext'
 
-interface Props { lang?: 'de' | 'en' }
-
-export default function Contact({ lang = 'de' }: Props) {
+export default function Contact() {
   const ref    = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-  const [sent, setSent] = useState(false)
+  const { lang } = useLang()
+  const [sent, setSent]       = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [name, setName]       = useState('')
+  const [email, setEmail]     = useState('')
+  const [message, setMessage] = useState('')
 
   const t = {
-    eyebrow:     lang === 'de' ? 'Kontakt'           : 'Contact',
-    heading:     lang === 'de' ? 'Lass uns reden'    : "Let's Talk",
-    name:        lang === 'de' ? 'Name'              : 'Name',
-    email:       lang === 'de' ? 'E-Mail'            : 'Email',
-    message:     lang === 'de' ? 'Nachricht'         : 'Message',
-    send:        lang === 'de' ? 'Senden'            : 'Send',
-    success:     lang === 'de' ? 'Nachricht gesendet ✓' : 'Message sent ✓',
+    eyebrow:  lang === 'de' ? 'Kontakt'           : 'Contact',
+    heading:  lang === 'de' ? 'Lass uns reden'    : "Let's Talk",
+    name:     lang === 'de' ? 'Name'              : 'Name',
+    email:    lang === 'de' ? 'E-Mail'            : 'Email',
+    message:  lang === 'de' ? 'Nachricht'         : 'Message',
+    send:     lang === 'de' ? 'Senden'            : 'Send',
+    success:  lang === 'de' ? 'Nachricht gesendet ✓' : 'Message sent ✓',
+    sending:  lang === 'de' ? 'Wird gesendet...'  : 'Sending...',
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: Connect to email service (e.g. Resend, Formspree)
-    setSent(true)
+    setLoading(true)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      })
+      if (res.ok) setSent(true)
+    } catch (err) {
+      console.error(err)
+    }
+    setLoading(false)
   }
 
   return (
@@ -57,19 +72,37 @@ export default function Contact({ lang = 'de' }: Props) {
         <div className={styles.row}>
           <div className={styles.field}>
             <label>{t.name}</label>
-            <input type="text" required placeholder="Tayfun Khojasteh" />
+            <input
+              type="text"
+              required
+              placeholder="Tayfun Khojasteh"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
           </div>
           <div className={styles.field}>
             <label>{t.email}</label>
-            <input type="email" required placeholder="mail@example.com" />
+            <input
+              type="email"
+              required
+              placeholder="mail@example.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
           </div>
         </div>
         <div className={styles.field}>
           <label>{t.message}</label>
-          <textarea rows={6} required placeholder="..." />
+          <textarea
+            rows={6}
+            required
+            placeholder="..."
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+          />
         </div>
-        <button type="submit" className={styles.btn} disabled={sent}>
-          {sent ? t.success : t.send}
+        <button type="submit" className={styles.btn} disabled={sent || loading}>
+          {sent ? t.success : loading ? t.sending : t.send}
         </button>
       </motion.form>
     </section>

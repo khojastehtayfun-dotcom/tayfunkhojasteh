@@ -1,11 +1,30 @@
 .about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   min-height: 100vh;
+  border-top: 1px solid var(--chrome-3);
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  cursor: pointer;
+}
+
+.img {
+  transition: opacity 0.8s ease;
+}
+
+.visible { opacity: 1; }
+.hidden  { opacity: 0; }
+
+.content {
+  padding: 6rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8rem clamp(2rem, 8vw, 10rem);
-  border-top: 1px solid var(--chrome-3);
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .eyebrow {
@@ -15,27 +34,40 @@
   color: var(--text-muted);
 }
 
-.lines {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.line {
+.name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 8vw, 7rem);
-  line-height: 1;
-  letter-spacing: 0.04em;
-  background: linear-gradient(90deg, #e8e8e8, #707070);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.95;
+  background: linear-gradient(160deg, #ffffff, #606060);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bio {
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-  font-weight: 300;
+  font-size: 1rem;
   color: var(--chrome-2);
   line-height: 1.8;
   max-width: 40ch;
+}
+
+.quote {
+  font-size: 1.4rem;
+  color: var(--chrome-1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote span {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .about { grid-template-columns: 1fr; }
+  .imageWrapper { min-height: 400px; }
+  .content { padding: 3rem 2rem; }
 }
