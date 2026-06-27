@@ -1,19 +1,21 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { LanguageProvider } from '@/context/LanguageContext'
+import LenisProvider from '@/components/LenisProvider'
+import LoadingScreen from '@/components/LoadingScreen'
 
 export const metadata: Metadata = {
   title: 'Tayfun Khojasteh',
-  description: 'Entrepreneur. Builder. Multi-CEO.',
+  description: 'Entrepreneur · Brands · Ventures',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body>
-        <LanguageProvider>
+        <LoadingScreen />
+        <LenisProvider>
           {children}
-        </LanguageProvider>
+        </LenisProvider>
       </body>
     </html>
   )

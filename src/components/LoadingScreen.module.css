@@ -1,0 +1,49 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  background: #080808;
+  z-index: 99997;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.clip {
+  overflow: hidden;
+  line-height: 1;
+}
+
+.tk {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 12vw, 10rem);
+  letter-spacing: 0.08em;
+  color: #e8e8e8;
+  margin: 0;
+  line-height: 1;
+}
+
+.name {
+  font-size: 0.62rem;
+  letter-spacing: 0.55em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin: 0;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform-origin: left;
+}
