@@ -46,4 +46,7 @@
   height: 2px;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
   transform-origin: left;
+}.logo {
+  width: min(950px, 85vw);
+  height: auto;
 }

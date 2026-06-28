@@ -4,12 +4,13 @@
   --black:       #080808;
   --chrome-1:    #e8e8e8;
   --chrome-2:    #a0a0a0;
-  --chrome-3:    #505050;
+  --chrome-3:    #383838;
   --chrome-glow: #d4d4d4;
-  --accent:      #c0c0c0;
+  --accent:      #c9a84c;
+  --accent-dim:  #8a6f2e;
   --bg:          #080808;
   --text:        #e8e8e8;
-  --text-muted:  #707070;
+  --text-muted:  #505050;
 }
 
 *, *::before, *::after {
@@ -19,7 +20,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
 }
 
 body {
@@ -32,20 +33,17 @@ body {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--chrome-3); }
+::-webkit-scrollbar-thumb { background: var(--accent-dim); }
 
 /* Selection */
 ::selection {
-  background: var(--chrome-3);
+  background: var(--accent-dim);
   color: var(--chrome-1);
 }
-.custom-cursor,
-.custom-cursor * {
-  cursor: none !important;
-}
 
+/* Noise Overlay */
 body::after {
   content: '';
   position: fixed;
@@ -56,8 +54,4 @@ body::after {
   background-size: 200px 200px;
   opacity: 0.038;
   mix-blend-mode: overlay;
-}
-
-html {
-  scroll-behavior: auto !important;
 }

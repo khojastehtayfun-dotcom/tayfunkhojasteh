@@ -1,14 +1,14 @@
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  height: 100vh;
   border-top: 1px solid var(--chrome-3);
+  overflow: hidden;
 }
 
 .imageWrapper {
   position: relative;
   overflow: hidden;
-  min-height: 600px;
   cursor: pointer;
 }
 
@@ -20,11 +20,11 @@
 .hidden  { opacity: 0; }
 
 .content {
-  padding: 6rem 4rem;
+  padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.4rem;
 }
 
 .eyebrow {
@@ -36,7 +36,7 @@
 
 .name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 0.95;
   background: linear-gradient(160deg, #ffffff, #606060);
   -webkit-background-clip: text;
@@ -44,30 +44,44 @@
   background-clip: text;
 }
 
+.bioWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
 .bio {
-  font-size: 1rem;
+  font-size: 0.88rem;
   color: var(--chrome-2);
-  line-height: 1.8;
-  max-width: 40ch;
+  line-height: 1.75;
+  max-width: 52ch;
 }
 
 .quote {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--chrome-1);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
 }
 
 .quote span {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   font-style: italic;
 }
 
 @media (max-width: 768px) {
-  .about { grid-template-columns: 1fr; }
-  .imageWrapper { min-height: 400px; }
-  .content { padding: 3rem 2rem; }
+  .about {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .imageWrapper {
+    height: 50vh;
+  }
+  .content {
+    padding: 3rem 2rem;
+  }
 }

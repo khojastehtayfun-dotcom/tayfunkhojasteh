@@ -69,7 +69,7 @@ export default function Hero() {
         ctx.rotate(((s.angle + s.spin * p) * Math.PI) / 180)
         const sg = ctx.createLinearGradient(-s.size, -s.size, s.size, s.size)
         sg.addColorStop(0,   '#e8e8e8')
-        sg.addColorStop(0.5, '#808080')
+        sg.addColorStop(0.5, '#c9a84c')
         sg.addColorStop(1,   '#303030')
         ctx.fillStyle = sg
         ctx.fillRect(-s.size / 2, -s.size / 2, s.size, s.size * 0.4)
@@ -103,6 +103,7 @@ export default function Hero() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <img src="/images/Tayfun Logo.png" alt="TK" className={styles.logo} />
+          <div className={styles.divider} />
           <h1 className={styles.name}>Tayfun Khojasteh</h1>
           <p className={styles.subtitle}>Entrepreneur &nbsp;·&nbsp; Investor &nbsp;·&nbsp; Multi-CEO</p>
         </motion.div>
