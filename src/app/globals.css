@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap');
 
 :root {
-  --black:       #080808;
+  --black:       #0a0a0a;
   --chrome-1:    #e8e8e8;
   --chrome-2:    #a0a0a0;
   --chrome-3:    #383838;
   --chrome-glow: #d4d4d4;
   --accent:      #c9a84c;
   --accent-dim:  #8a6f2e;
-  --bg:          #080808;
+  --bg:          #0a0a0a;
   --text:        #e8e8e8;
   --text-muted:  #505050;
 }
@@ -32,18 +32,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--accent-dim); }
 
-/* Selection */
 ::selection {
-  background: var(--accent-dim);
+  background: var(--chrome-3);
   color: var(--chrome-1);
 }
 
-/* Noise Overlay */
 body::after {
   content: '';
   position: fixed;

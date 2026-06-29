@@ -13,10 +13,10 @@
 }
 
 .nav.scrolled {
-  background: rgba(8, 8, 8, 0.92);
+  background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(12px);
   padding: 1rem 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
 }
 
 .nav.menuOpen {
@@ -64,7 +64,7 @@
   display: block;
   width: 28px;
   height: 1.5px;
-  background: #fff;
+  background: #e8e8e8;
   transition: transform 0.4s ease, opacity 0.3s ease;
   transform-origin: center;
 }
@@ -87,7 +87,7 @@
   position: fixed;
   inset: 0;
   z-index: 9997;
-  background: #080808;
+  background: #0a0a0a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -113,18 +113,18 @@
 }
 
 .overlayLinks li {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .overlayLinks li:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .overlayLinks button {
   background: none;
   border: none;
   cursor: pointer;
-  color: #fff;
+  color: #e8e8e8;
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(3rem, 8vw, 7rem);
   letter-spacing: 0.06em;
@@ -145,7 +145,7 @@
 .itemNum {
   font-family: 'Inter', sans-serif;
   font-size: clamp(0.65rem, 1.2vw, 0.8rem);
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(201, 168, 76, 0.4);
   letter-spacing: 0.2em;
   margin-top: 0.4rem;
   min-width: 2rem;
@@ -163,7 +163,7 @@
   font-family: 'Inter', sans-serif;
   font-size: 0.6rem;
   letter-spacing: 0.5em;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(232, 232, 232, 0.2);
   margin: 0;
 }
 
@@ -178,7 +178,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(232, 232, 232, 0.35);
   font-family: 'Inter', sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.2em;
@@ -191,6 +191,6 @@
 }
 
 .divider {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(232, 232, 232, 0.2);
   font-size: 0.7rem;
 }
