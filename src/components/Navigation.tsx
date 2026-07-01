@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import styles from './Navigation.module.css'
 import { useLang } from '@/context/LanguageContext'
 
@@ -10,6 +11,7 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const { lang, setLang } = useLang()
   const lastY = useRef(0)
+  const router = useRouter()
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,16 +29,41 @@ export default function Navigation() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string, href?: string) => {
     setOpen(false)
+    if (href) {
+      setTimeout(() => {
+        router.push(href)
+      }, 600)
+      return
+    }
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     }, 600)
   }
 
+  const navigateTo = (href: string, id?: string) => {
+    if (id) {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
+    router.push(href)
+  }
+
   const navItems = [
     { label: lang === 'de' ? 'Über mich' : 'About', id: 'about' },
     { label: 'Ventures', id: 'ventures' },
+    { label: 'Real Estate', id: 'real-estate', href: '/real-estate' },
+    { label: lang === 'de' ? 'Kontakt' : 'Contact', id: 'contact' },
+  ]
+
+  const categoryItems = [
+    { label: 'Fashion', id: 'ventures', href: '/ventures/fashion' },
+    { label: 'Real Estate', id: 'real-estate', href: '/real-estate' },
+    { label: 'Sales', id: 'ventures', href: '/ventures/sales' },
     { label: lang === 'de' ? 'Kontakt' : 'Contact', id: 'contact' },
   ]
 
@@ -64,6 +91,19 @@ export default function Navigation() {
         </button>
       </nav>
 
+      {/* Category Bar — James Edition Style */}
+      <div className={`${styles.categoryBar} ${scrolled ? styles.categoryBarScrolled : ''}`}>
+        <ul className={styles.categoryList}>
+          {categoryItems.map((item) => (
+            <li key={item.label}>
+              <button onClick={() => navigateTo(item.href, item.id)}>
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* Full Screen Overlay */}
       <AnimatePresence>
         {open && (
@@ -85,7 +125,7 @@ export default function Navigation() {
                     exit={{ opacity: 0, y: 20 }}
                     transition={{ delay: 0.2 + i * 0.08, duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
                   >
-                    <button onClick={() => scrollTo(item.id)}>
+                    <button onClick={() => scrollTo(item.id, item.href)}>
                       <span className={styles.itemNum}>0{i + 1}</span>
                       {item.label}
                     </button>

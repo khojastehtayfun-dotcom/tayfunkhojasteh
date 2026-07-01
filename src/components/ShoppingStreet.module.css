@@ -1,173 +1,200 @@
 .section {
-  --cw: 52vw;
-  --cg: 2.5rem;
-  padding: 6rem 0 4rem;
   background: var(--bg);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
-@media (max-width: 900px) { .section { --cw: 75vw; } }
-@media (max-width: 600px) { .section { --cw: 88vw; } }
 
 .header {
   display: flex;
   align-items: baseline;
   gap: 1.5rem;
-  padding: 0 clamp(2.5rem, 6vw, 7rem);
-  margin-bottom: 2.5rem;
+  padding: 6rem clamp(2.5rem, 6vw, 7rem) 3rem;
 }
+
 .eyebrow {
   font-size: 0.62rem;
   letter-spacing: 0.45em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255, 255, 255, 0.3);
 }
+
 .title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1;
-  letter-spacing: 0.04em;
-  background: linear-gradient(90deg, #e8e8e8, #555);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #e8e8e8;
   margin: 0;
 }
-.counter { margin-left: auto; display: flex; align-items: baseline; gap: 0.3rem; }
-.cur { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: rgba(255,255,255,0.75); line-height: 1; }
-.sep { font-size: 0.7rem; color: rgba(255,255,255,0.2); }
-.tot { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.22); line-height: 1; }
 
-.carouselWrap {
-  position: relative;
+/* Venture Rows */
+.ventures {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
-.viewport {
-  flex: 1;
+
+.ventureRow {
+  position: relative;
+  height: 50vh;
+  min-height: 320px;
+  cursor: pointer;
   overflow: hidden;
-  padding: 2.5rem clamp(2.5rem, 6vw, 7rem);
-}
-.track {
-  display: flex;
-  gap: var(--cg);
-  width: max-content;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  transition: border-color 0.4s;
 }
 
-.card {
-  position: relative;
-  width: var(--cw);
-  height: clamp(320px, 50vh, 500px);
-  flex-shrink: 0;
+.ventureRow:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.ventureRow:hover .ventureHover {
+  opacity: 1;
+}
+
+.ventureInner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid rgba(255,255,255,0.08);
-  overflow: hidden;
-  cursor: pointer;
-  transition: border-color 0.4s, box-shadow 0.4s, opacity 0.4s, filter 0.4s;
-  transform-style: preserve-3d;
-}
-.cardOn {
-  border-color: rgba(255,255,255,0.14);
-  box-shadow: 0 28px 70px rgba(0,0,0,0.6);
-}
-.cardOff {
-  opacity: 0.35;
-  filter: saturate(0.5);
+  height: 100%;
+  padding: 3rem clamp(2.5rem, 6vw, 7rem);
+  align-items: center;
+  gap: 4rem;
 }
 
-.visual {
+/* Info Side */
+.ventureInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.ventureTag {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.ventureName {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1;
+  color: #e8e8e8;
+  margin: 0;
+}
+
+.ventureSub {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+.ventureDivider {
+  width: 2rem;
+  height: 1px;
+  opacity: 0.5;
+  margin: 0.4rem 0;
+}
+
+.ventureDesc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.75;
+  max-width: 38ch;
+  margin: 0;
+}
+
+.ventureFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.ventureStatus {
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.ventureNum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.1em;
+}
+
+/* Visual Side */
+.ventureVisual {
   position: relative;
-  overflow: hidden;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.accentBar {
+
+.ventureGhost {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  opacity: 0.85;
-}
-.ghost {
-  position: absolute;
-  bottom: -0.1em; left: -0.04em;
+  bottom: -0.1em;
+  right: -0.04em;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(7rem, 12vw, 13rem);
+  font-size: clamp(6rem, 12vw, 14rem);
   line-height: 1;
-  color: rgba(255,255,255,0.038);
+  color: rgba(255, 255, 255, 0.03);
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.03em;
 }
-.logo {
+
+.ventureLogo {
   position: relative;
   z-index: 2;
-  width: 70%;
+  width: 65%;
+  max-width: 280px;
   height: auto;
-  max-height: 55%;
   object-fit: contain;
 }
-.vName {
+
+.ventureLetters {
   position: relative;
   z-index: 2;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(1.4rem, 2.8vw, 2.8rem);
-  letter-spacing: 0.05em;
-  text-align: center;
-  padding: 1rem;
-  line-height: 1.1;
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.08em;
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-  padding: 1.6rem 1.8rem;
-  background: #070709;
-  border-left: 1px solid rgba(255,255,255,0.05);
-}
-.tTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 1.2rem;
-}
-.tag { font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase; font-weight: 500; }
-.cid { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.1); letter-spacing: 0.1em; }
-.tMid { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
-.name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1; letter-spacing: 0.04em; color: #e8e8e8; margin: 0; }
-.sub { font-size: 0.55rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(255,255,255,0.26); margin: 0; }
-.div { height: 1px; width: 2rem; margin: 0.4rem 0; opacity: 0.5; }
-.desc { font-size: clamp(0.75rem, 1vw, 0.85rem); color: rgba(255,255,255,0.42); line-height: 1.75; font-weight: 300; margin: 0; }
-.status { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; margin: 0; margin-top: auto; padding-top: 1rem; }
-.glare { position: absolute; inset: 0; pointer-events: none; z-index: 20; mix-blend-mode: screen; }
-
-.arrow {
+/* Hover Overlay */
+.ventureHover {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 20;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  color: rgba(255,255,255,0.3);
-  transition: color 0.3s ease, transform 0.3s ease;
-  line-height: 0;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2rem clamp(2.5rem, 6vw, 7rem);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
-.arrow:hover {
-  color: rgba(255,255,255,0.9);
-  transform: translateY(-50%) scale(1.06);
-}
-.arrowL { left: 0.8rem; }
-.arrowR { right: 0.8rem; }
 
-.dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
-.dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  border: none; cursor: pointer;
-  transition: all 0.3s; padding: 0;
+.ventureHover span {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
 }
-.dotOn { width: 20px; border-radius: 3px; }
-.dot:hover:not(.dotOn) { background: rgba(255,255,255,0.4); }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .ventureInner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .ventureVisual {
+    display: none;
+  }
+
+  .ventureRow {
+    height: auto;
+    min-height: 220px;
+  }
+}

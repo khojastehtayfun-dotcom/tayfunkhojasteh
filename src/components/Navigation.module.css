@@ -16,7 +16,7 @@
   background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(12px);
   padding: 1rem 2.5rem;
-  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  border-bottom: none;
 }
 
 .nav.menuOpen {
@@ -82,11 +82,89 @@
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
+/* Category Bar — James Edition Style */
+.categoryBar {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 9997;
+  display: flex;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+  transition: top 0.4s ease, background 0.4s ease;
+}
+
+.categoryBar.categoryBarScrolled {
+  top: 58px;
+  background: rgba(10, 10, 10, 0.92);
+}
+
+.categoryList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.categoryList button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(232, 232, 232, 0.6);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  padding: 0.7rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.categoryList button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: #c9a84c;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.categoryList button:hover {
+  color: #e8e8e8;
+}
+
+.categoryList button:hover::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  .categoryList {
+    gap: 1.4rem;
+    padding: 0 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .categoryList button {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+}
+
 /* Full Screen Overlay */
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 9997;
+  z-index: 9999;
   background: #0a0a0a;
   display: flex;
   align-items: center;
