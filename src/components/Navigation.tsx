@@ -42,7 +42,7 @@ export default function Navigation() {
     }, 600)
   }
 
-  const navigateTo = (href: string, id?: string) => {
+  const navigateTo = (href: string | undefined, id?: string) => {
     if (id) {
       const el = document.getElementById(id)
       if (el) {
@@ -50,7 +50,9 @@ export default function Navigation() {
         return
       }
     }
-    router.push(href)
+    if (href) {
+      router.push(href)
+    }
   }
 
   const navItems = [
