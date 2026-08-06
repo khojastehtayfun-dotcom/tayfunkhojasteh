@@ -53,6 +53,18 @@ export default function MiamiVintagePage() {
         >
           ↗ Erster Drop · Sommer 2026
         </motion.span>
+
+        <motion.a
+          href="https://miamivintage.de/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.shopButton}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.75 }}
+        >
+          Zum Shop ↗
+        </motion.a>
       </div>
     </main>
   )

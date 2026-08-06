@@ -20,15 +20,15 @@ const VENTURES = [
   },
   {
     id: '02',
-    tag: 'Sales',
-    name: 'Teleson',
-    sub: 'Sales & Distribution',
-    desc: 'Motivierte Talente für den gemeinsamen Aufbau von etwas Großem. Strukturierter Vertrieb mit Substanz.',
-    status: 'Aktiv',
-    accent: '#e8e8e8',
-    logo: null,
-    href: '/ventures/teleson',
-    bg: '#080808',
+    tag: 'Lighting',
+    name: 'LichtBrendt',
+    sub: 'Licht, das man sich merkt.',
+    desc: 'Eine gnadenlos gute Auswahl der besten Leuchten am Markt – kuratiert mit Blick fürs Detail. Im Kern eigene Systeme, entworfen in Deutschland, gedacht für Räume, die bleiben sollen.',
+    status: 'Coming Soon',
+    accent: '#c9a84c',
+    logo: '/LichtBrendt Logo.png',
+    href: '/ventures/lichtbrendt',
+    bg: '#08080a',
   },
   {
     id: '03',
@@ -109,7 +109,6 @@ function VentureSection({ v, index, onClick }: {
 
         {/* Right — Visual */}
         <div className={styles.ventureVisual}>
-          <span className={styles.ventureGhost}>{v.name.slice(0, 2).toUpperCase()}</span>
           {v.logo
             ? <img src={v.logo} alt={v.name} className={styles.ventureLogo} />
             : (

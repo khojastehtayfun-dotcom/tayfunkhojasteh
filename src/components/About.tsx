@@ -12,17 +12,17 @@ export default function About({ lang = 'de' }: Props) {
   const inView = useInView(ref, { once: true, margin: '-100px' })
   const [hovered, setHovered] = useState(false)
 
-  const bioDE = `Ich bin Tayfun. 27 Jahre alt, Unternehmer aus Leidenschaft und Überzeugung. Was mich antreibt ist nicht der Zufall — es ist die Obsession, Dinge aus dem Nichts zu erschaffen. Marken, Systeme, Strukturen. Ich baue nicht weil ich muss, ich baue weil es das einzige ist was sich für mich wirklich richtig anfühlt.
+  const bioDE = `Ich bin Tayfun, 27. Ich baue Marken – nicht als Nebenprojekt, sondern als Lebenseinstellung. Von Online-Shops bis zu den Systemen, die dahinterstehen.
 
-Alsdorf war der Anfang. Heute stehe ich für Fashion, E-Commerce und Vertrieb. Morgen für mehr. Die Branchen erweitern sich, die Philosophie bleibt: Strukturen, Systeme und Marken bauen.
+Was du hier findest, ist kein fertiges Werk, sondern ein Blick in das, woran ich gerade arbeite: eigene Fashion-Labels und einiges, das noch kommt.
 
-Eine Ein-Mann-Show — bewusst und mit voller Überzeugung. Denn wer allein baut, baut auf einem Fundament das niemand erschüttern kann.`
+Der schnelle Erfolg war nie der Antrieb. Es ist das Gefühl, aus einer Idee etwas Reales entstehen zu lassen – Stück für Stück, mit voller Kontrolle über jedes Detail.`
 
-  const bioEN = `I'm Tayfun. 27 years old, entrepreneur by passion and conviction. What drives me is not chance — it's the obsession of creating things from nothing. Brands, systems, structures. I don't build because I have to, I build because it's the only thing that feels truly right.
+  const bioEN = `I'm Tayfun, 27. I build brands – not as a side project, but as a way of life. From online shops to the systems behind them.
 
-Alsdorf was the beginning. Today I stand for fashion, e-commerce and sales. Tomorrow for more. The industries expand, the philosophy remains: building structures, systems and brands.
+What you'll find here isn't a finished body of work, but a look into what I'm building right now: my own fashion labels, and more on the way.
 
-A one-man show — deliberate and with full conviction. Because whoever builds alone, builds on a foundation no one can shake.`
+Quick success was never the drive. It's the feeling of turning an idea into something real – piece by piece, with full control over every detail.`
 
   return (
     <section className={styles.about} ref={ref} id="about">
