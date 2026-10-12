@@ -41,8 +41,16 @@ export default function MiamiVintagePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Handverlesene Denim-Stücke mit Y2K-Charakter und modernem Edge.
-          Keine Fast Fashion. Kein Kompromiss. Erster Drop Sommer 2026.
+          Miami Vintage begann mit dem Weiterverkauf besonderer Vintage-Pieces
+          aus den 2000ern. Wir lieben diese Fundstücke, fanden es aber schade,  
+          dass dieser Stil heute oft nur noch vereinzelt und gebraucht zu finden ist.
+          <br /><br />
+          Deshalb wollen wir den Mall-Stil der 2000er zurückbringen – und das
+          Gefühl, beim Shoppen etwas Besonderes zu entdecken. Pieces mit Charakter,
+          die an damalige Lieblingsläden erinnern, mit unserer eigenen Handschrift
+          und komplett neu gefertigt. Für das Shoppingerlebnis von damals,
+          in der heutigen Zeit. Fern von Fast Fashion und den gleichen Styles
+          an jeder Ecke.
         </motion.p>
 
         <motion.span
