@@ -6,7 +6,7 @@ import styles from './Stats.module.css'
 import { useLang } from '@/context/LanguageContext'
 
 const stats = [
-  { value: 1,    suffix: '',  label_de: 'Aktives Projekt',  label_en: 'Active Project'    },
+  { value: 2,    suffix: '',  label_de: 'Aktives Projekt',  label_en: 'Active Project'    },
   { value: 3,    suffix: '+', label_de: 'Jahre am Ball',    label_en: 'Years in the Game' },
   { value: 3,    suffix: '',  label_de: 'Branchen',         label_en: 'Industries'        },
   { value: null, suffix: '∞', label_de: 'Ambitionen',       label_en: 'Ambitions'         },
